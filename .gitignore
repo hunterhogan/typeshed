@@ -62,6 +62,7 @@ analyze.py
 .vscode/*
 !.vscode/settings.default.json
 !.vscode/extensions.json
+!.vscode/tasks.json
 .idea/
 .venv*/
 

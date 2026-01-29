@@ -1,0 +1,25 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run Tests on Staged Files",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "& { .venv/Scripts/activate.ps1; $paths = (git diff --cached --name-only --diff-filter=AM | ForEach-Object { ($_ -split '/')[0,1] -join '/' } | Sort-Object -Unique); foreach ($path in $paths) { python tests/runtests.py --run-stubtest $path } }"
+            ],
+            "group": "test",
+            "isBackground": false,
+            "problemMatcher": [],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        }
+    ]
+}
